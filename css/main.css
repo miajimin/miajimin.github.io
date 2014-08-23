@@ -1,0 +1,710 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Lier, 2014. 6. 20. 오전 12:02 ==============================================
+    기본 설정
+   ========================================================================== */
+
+/* a 요소는 기본적으로 href 속성이 존재할 경우 밑줄이 나타나도록 되어있습니다. 해당 어플리케이션에서는
+   전역적으로 링크에 밑줄을 사용하지 않기 때문에 제거합니다. - Lier, 2014. 6. 23. 오후 5:19 */
+
+a {
+    text-decoration: none;
+}
+
+/* body 요소는 브라우저 화면에 보이는 모든 요소들의 부모이므로 이곳에 등록된 스타일들은 하위요소에서 새로
+   정의하지 않을 경우 기본적으로 사용될 수 있습니다. 모든 시각적으로 드러나는 요소들에 기본값을 지정하고
+   싶다면 body 요소에 등록하세요. - Lier, 2014. 6. 23. 오후 5:21 */
+
+body {
+    color: rgba(51, 51, 50, 1);
+    font-family: 'Lato', 'nanum gothic', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding-top: 135px;
+}
+
+/* Lier, 2014. 6. 20. 오전 12:02 ==============================================
+    주요 요소들
+   ========================================================================== */
+
+/* 해당 어플리케이션에서는 모바일과 컴퓨터에서 서로 판이하게 다른 형태를 x-com, x-mobile 클래스로 구분하고
+   있습니다. x-com 클래스를 숨기는 이유는 해당 어플리케이션은 모바일 퍼스트 형태로 만들어지기 때문에 컴퓨터에서
+   보여질 수 있는 요소를 우선 차단하여 숨깁니다. - Lier, 2014. 6. 23. 오후 5:07 */
+
+.x-com {
+    display: none;
+}
+
+.x-mobile {
+    display: block;
+}
+
+/* 어플리케이션 내에서 사용되는 주요 배경 색상과 그에 걸맞는 텍스트 색상을 클래스 형태로 작성합니다. 이와같이
+   코드 내에서 지속적으로 동일하게 나오는 스타일들은 클래스로 묶어두는 것이 편리합니다. - Lier, 2014. 6. 23. 오후 5:05 */
+
+.x-bg-white {
+    color: rgba(99, 98, 98, 1);
+    background-color: white;
+}
+
+.x-bg-silver {
+    color: rgba(99, 98, 98, 1);
+    background-color: rgba(230, 230, 230, 1);
+}
+
+.x-bg-gray {
+    color: white;
+    background-color: rgba(125, 125, 125, 1);
+}
+
+/* 아이콘을 구성하는데 필요한 기본적인 스타일을 지정합니다. - Lier, 2014. 6. 24. 오후 12:21 */
+
+.x-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* x-align-middle 클래스는 vertical-align 속성이 블럭요소에서도 정상적으로 동작할 수 있도록 돕습니다.
+   우선 수직으로 가운데 정렬하고 싶은 요소의 부모에 x-align-middle 클래스를 삽입하고 정렬이 필요한 요소에
+   x-align-block 클래스를 삽입합니다. 작동원리는 블럭요소의 :before 영역을 인라인요소의 :before 영역과
+   동일하게 맞추는 방식입니다. - Lier, 2014. 6. 20. 오전 1:03 */
+
+.x-align-middle {
+    display: inline-block;
+}
+
+.x-align-middle:before {
+    width: 0;
+    height: 100%;
+    content: '';
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: -0.25em;
+}
+
+.x-align-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Lier, 2014. 6. 20. 오전 12:02 ==============================================
+   메이저 헤더
+   ========================================================================== */
+
+/* 로고나 메뉴 스타일과 같이 메이저 헤더에서 웹과 모바일의 구분없이 공통적으로 사용될 수 있는 스타일들을
+   우선적으로 지정합니다. - Lier, 2014. 6. 20. 오후 3:05 */
+
+header.x-major {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+}
+
+header.x-major .x-logo-wrap .x-logo.x-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url("logo.svg");
+}
+
+/* 지정된 transition 속성은 다른 스테이트에서 현재 스테이트로 넘어오는 시점에서 실행됩니다. 무슨 말인지
+   모르겠다면 일단 아래의 두 값을 바꿔보면서 마우스를 올렸다 내려보세요. - Lier, 2014. 6. 23. 오후 6:52 */
+
+header.x-major nav ul li a {
+    color: rgba(99, 98, 98, 1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in;
+}
+
+header.x-major nav ul li a:hover {
+    color: rgba(51, 51, 50, 0.4);
+    transition: all 0.2s ease-out;
+}
+
+/* 메이저 헤더의 속성을 분기하여 컴퓨터 브라우저에서 보여지는 상황에서의 스타일을 지정합니다. 부모요소 중에
+   x-com 클래스가 존재하는 요소에 대해서만 아래의 스타일이 적용됩니다. - Lier, 2014. 6. 20. 오후 3:05 */
+
+header.x-major .x-com .x-logo-wrap {
+    position: absolute;
+}
+
+header.x-major .x-com .x-container {
+    height: 80px;
+    max-width: 925px;
+    position: relative;
+    margin: 0 auto;
+    text-align: right;
+}
+
+header.x-major .x-com nav ul,
+header.x-major .x-com nav ul li {
+    height: 80px;
+}
+
+header.x-major .x-com nav ul li {
+    font-size: 16px;
+    padding: 0 38px;
+}
+
+/* 메이저 헤더의 속성을 분기하여 모바일 브라우저에서 보여지는 상황에서의 스타일을 지정합니다. 부모요소 중에
+   x-mobile 클래스가 존재하는 요소에 대해서만 아래의 스타일이 적용됩니다. - Lier, 2014. 6. 23. 오후 7:01 */
+
+header.x-major .x-mobile .x-logo-wrap {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header.x-major .x-mobile nav ul li {
+    width: 31%;
+    height: 50px;
+}
+
+header.x-major .x-mobile nav ul li a {
+    font-size: 11px;
+}
+
+/* Lier, 2014. 6. 20. 오전 12:02 ==============================================
+   메이저 푸터
+   ========================================================================== */
+
+footer.x-major {
+    text-align: center;
+}
+
+footer.x-major .x-contact {
+    padding: 40px 0;
+}
+
+/* 메이저 푸터의 심볼마크 스타일을 지정합니다. 본문 컨테이너의 심볼마크와 동일한 스타일을 가지고 있지만 서로
+   분리하여 관리하는 것이 유지보수에 좋습니다. - Lier, 2014. 6. 24. 오전 11:36 */
+
+footer.x-major .x-contact .x-symbol .x-title {
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+footer.x-major .x-contact .x-symbol .x-icon {
+    width: 70px;
+    height: 70px;
+    background-image: url('symbol-contact.svg');
+}
+
+footer.x-major .x-contact hr {
+    width: 160px;
+    margin: 44px auto;
+    border-color: rgba(204, 204, 204, 1);
+}
+
+/* 메이저 푸터의 슬로건과 소셜 아이콘들의 스타일을 지정합니다. - Lier, 2014. 6. 24. 오전 11:43 */
+
+footer.x-major .x-contact dl {
+    margin-bottom: 88px;
+}
+
+footer.x-major .x-contact dl dt {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+}
+
+footer.x-major .x-contact address ul li {
+    display: inline-block;
+}
+
+/* 아이콘 버튼을 스프라이트를 활용하여 배치합니다. 이미지 스프라이트를 활용하면 서버에 자원을 요청하는
+   횟수가 줄어 좀 더 빠른 속도로 로딩이 가능하고 유지보수에 좋습니다. - Lier, 2014. 6. 24. 오전 11:48 */
+
+footer.x-major .x-contact address ul li .x-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url("ico_social.svg");
+    opacity: 0.8;
+    transition: all 0.2s ease-in;
+}
+
+footer.x-major .x-contact address ul li .x-icon:hover {
+    opacity: 1;
+    transition: all 0.3s ease-in;
+}
+
+footer.x-major .x-contact address ul li .x-facebook {
+    background-position: 0;
+}
+
+footer.x-major .x-contact address ul li .x-instagram {
+    background-position: -60px;
+}
+
+footer.x-major .x-contact address ul li .x-tumblr {
+    background-position: -120px;
+}
+
+footer.x-major .x-contact address ul li .x-twitter {
+    background-position: -180px;
+}
+
+footer.x-major .x-contact address ul li .x-email {
+    background-position: -240px;
+}
+
+/* 카피라이트 문구의 스타일을 작성합니다. - Lier, 2014. 7. 4. 오후 1:04 */
+
+footer.x-major .x-copyright {
+    padding: 40px;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 55em) {
+
+    /* 주요 요소들  - Lier, 2014. 7. 4. 오후 2:41 */
+    body {
+        padding-top: 80px;
+    }
+
+    .x-com {
+        display: block;
+    }
+
+    .x-mobile {
+        display: none;
+    }
+}
+
+@media print,
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+/*CLEARFIX*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+.menu {
+    width: 20%;
+    height: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #f5f5f5;
+}
+
+.logo {
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10%;
+}
+
+.img_menu {
+    -webkit-transform:rotate(270deg) translate(100%, 25px);
+    -moz-transform:rotate(270deg) translate(100%, 25px);
+    transform:rotate(270deg) translate(100%, 25px);
+    position : absolute;
+    bottom : 0;
+    left:0;
+
+}
+
+.img_menu a{
+    float:left;
+    margin-left:10px;
+    font-size: 20px;
+
+}
+
+.images {
+    position: relative;
+    left: 20%;
+    width: 80%;
+}
+
+.container-1 {
+    width: 100%;
+}
+
+.img {
+    width: 100%;
+}
+
+.container-2 {
+    width: 50%;
+    float: left;
+}
+
+.container-3 {
+    width: 25%;
+    float: right;
+    padding-left: 25%;
+}
+
+.ha {
+    width: 25%;
+    left: 75%;
+}
+
+.container-4 {
+    width: 25%;
+    left: 75%;
+    float: left;
+}
+
+.box {
+    position: relative;
+}
+
+.box .description {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: all 0.2s linear;
+}
+
+.box:hover .description {
+    display: block;
+    opacity: 0.5;
+    transition: all 0.2s linear;
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 75em) {
+    .box {
+        width: 28%;
+    }
+}
+
+@media only screen and (min-width: 40em) and (max-width: 75em) {
+    .box {
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 1em) and (max-width: 40em) {
+    .images {
+        width: 100%;
+    }
+}
+
+.box {
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    height: 70%;
+    border: 1px solid #acacac;
+    background-color: #ffff00;
+}
